@@ -1,0 +1,10 @@
+{
+    "type": "button",
+    "action": {
+      "type": "postback",
+      "label": "查詢下一場",
+      "data": ""
+    },
+    "color": "#00ccff",
+    "style": "primary"
+  }

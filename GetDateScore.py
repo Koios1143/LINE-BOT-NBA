@@ -13,7 +13,7 @@ def tz_from_utc_ms_ts(utc_ms_ts, tz_info):
     # set the timezone to UTC, and then convert to desired timezone
     return utc_datetime.replace(tzinfo=pytz.timezone('UTC')).astimezone(tz_info)
 
-def Get_Card(date):
+def GetDateScore(date):
     url = 'https://tw.global.nba.com/stats2/scores/daily.json?countryCode=TW&gameDate={}&locale=zh_TW&tz=%2B8'
     Data = requests.get(url.format(date))
     Data = json.loads(Data.text,encoding='utf-8')

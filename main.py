@@ -7,12 +7,12 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import *
-from GetData import Get_Card
+from GetDateScore import GetDateScore
 from GetTeam import GetTeam, GetTeam2, GetTeam3
 from GetAllSchedule import GetAllSchedule
 from GetDateSchedule import GetDateSchedule
 from GetPlayers import GetPlayers
-from GetPlayer import GetPlayer
+from GetPlayerProfile import GetPlayerProfile
 from GetTeamLeaders import GetTeamLeaders
 
 app = Flask(__name__)
@@ -47,7 +47,7 @@ def handle_message(event):
         elif(message == '本日戰績'):
             nowtime = datetime.datetime.now()
             today = '{}-{}-{}'.format(nowtime.year,nowtime.month,nowtime.day)
-            Card = Get_Card(today)
+            Card = GetDateScore(today)
             line_bot_api.reply_message(reply_token, FlexSendMessage('查詢結果出爐~',Card))
         elif(message == '球隊賽程'):
             line_bot_api.reply_message(reply_token, FlexSendMessage('請選擇球隊', GetTeam()))
@@ -62,11 +62,11 @@ def handle_postback(event):
     data = event.postback.data
     if(data == 'SelectTime'):
         date = event.postback.params['date']
-        Card = Get_Card(date)
+        Card = GetDateScore(date)
         line_bot_api.reply_message(reply_token, FlexSendMessage('查詢結果出爐~', Card))
     elif(data.startswith('Get')):
         date = data[3:]
-        Card = Get_Card(date)
+        Card = GetDateScore(date)
         line_bot_api.reply_message(reply_token, FlexSendMessage('查詢結果出爐~', Card))
     elif(data.startswith('SelectScheduleFrom')):
         Team = data.split()[1]
@@ -84,7 +84,7 @@ def handle_postback(event):
         line_bot_api.reply_message(reply_token, FlexSendMessage('請選擇球員', Card))
     elif(data.startswith('SelectPlayerName')):
         PlayerName = data.split()[1]
-        Card = GetPlayer(PlayerName)
+        Card = GetPlayerProfile(PlayerName)
         line_bot_api.reply_message(reply_token, FlexSendMessage('查詢結果出爐~', Card))
     elif(data.startswith('SelectLeaderFrom')):
         Team = data.split()[1]
