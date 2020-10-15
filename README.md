@@ -40,6 +40,8 @@ A simple LINE BOT to search NBA infomation
     ![](https://i.imgur.com/oJ5yLsE.jpg)
 
 ## Author Information
-Name: Koios1143
-e-main: mailto:ken1357924681010@gmail.com
-update-time: 2020/10/15
+**Name**: Koios1143
+
+**e-mail**: ken1357924681010@gmail.com
+
+**update-time**: 2020/10/15
