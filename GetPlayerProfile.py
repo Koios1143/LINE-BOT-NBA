@@ -1,7 +1,7 @@
 import requests, json
 
 def GetPlayerProfile(name):
-    url = 'https://tw.global.nba.com/stats2/player/stats.json?ds=profile&locale=zh_TW&playerCode={}'.format(name)
+    url = 'https://tw.glob-prev3.nba.com/stats2/player/stats.json?ds=profile&locale=zh_TW&playerCode={}'.format(name)
     Data = json.loads(requests.get(url).text)['payload']
     Data_Player = Data['player']
     Data_PlayerProfile = Data_Player['playerProfile']
@@ -69,6 +69,6 @@ def GetPlayerProfile(name):
     PlayerDetail['body']['contents'].append(Seperater)
     PlayerDetail['body']['contents'].append(PlayerDetail_Avg)
     PlayerDetail['body']['contents'].append(Seperater)
-    PlayerDetail['footer']['contents'][0]['action']['uri'] = 'https://tw.global.nba.com/players/#!/{}'.format(name)
+    PlayerDetail['footer']['contents'][0]['action']['uri'] = 'https://tw.glob-prev3.nba.com/players/#!/{}'.format(name)
 
     return PlayerDetail
