@@ -1,7 +1,7 @@
 import json, requests
 
 def GetTeamLeaders(Team):
-    url = 'https://tw.global.nba.com/stats2/team/leader.json?locale=zh_TW&teamCode={}'.format(Team)
+    url = 'https://tw.glob-prev3.nba.com/stats2/team/leader.json?locale=zh_TW&teamCode={}'.format(Team)
     Data = json.loads(requests.get(url).text)['payload']
     pointLeader = Data['pointLeader']['players']
     reboundLeader = Data['reboundLeader']['players']
@@ -13,7 +13,7 @@ def GetTeamLeaders(Team):
     ftPctLeader = Data['ftPctLeader']['players']
     minLeader = Data['minLeader']['players']
 
-    url = 'https://tw.global.nba.com/stats2/team/standing.json?locale=zh_TW&teamCode={}'.format(Team)
+    url = 'https://tw.glob-prev3.nba.com/stats2/team/standing.json?locale=zh_TW&teamCode={}'.format(Team)
     Data2 = json.loads(requests.get(url).text)['payload']['team']
     profile = Data2['profile']
     standings = Data2['standings']
@@ -30,7 +30,7 @@ def GetTeamLeaders(Team):
 
     # Set Cover
     cover = json.load(open('json/Team/cover.json','r',encoding='utf-8'))
-    cover['hero']['url'] = 'https://tw.global.nba.com/media/img/teams/00/logos/{}_logo.png'.format(Team_abbr)
+    cover['hero']['url'] = 'https://tw.glob-prev3.nba.com/media/img/teams/00/logos/{}_logo.png'.format(Team_abbr)
     cover_box = cover['body']['contents'][0]['contents'][0]['contents']
     cover_box[0]['text'] = Team_Name
     cover_box[1]['text'] = Team_Rank
