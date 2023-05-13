@@ -14,9 +14,9 @@ def tz_from_utc_ms_ts(utc_ms_ts, tz_info):
     return utc_datetime.replace(tzinfo=pytz.timezone('UTC')).astimezone(tz_info)
 
 def GetAllSchedule(Team):
-    url = 'https://tw.global.nba.com/stats2/team/schedule.json?countryCode=TW&locale=zh_TW&teamCode={}'.format(Team)
+    url = 'https://tw.glob-prev3.nba.com/stats2/team/schedule.json?countryCode=TW&locale=zh_TW&teamCode={}'.format(Team)
     Schedule = json.loads(requests.get(url).text)['payload']
-    url = 'https://tw.global.nba.com/stats2/team/standing.json?locale=zh_TW&teamCode={}'.format(Team)
+    url = 'https://tw.glob-prev3.nba.com/stats2/team/standing.json?locale=zh_TW&teamCode={}'.format(Team)
     Standing = json.loads(requests.get(url).text)['payload']
 
     year = str(Schedule['season']['year'])
@@ -29,7 +29,7 @@ def GetAllSchedule(Team):
             year = str(int(year)+1)
         for game in monthGroup['games']:
             # Team logo
-            Schedule_out['body']['contents'][0]['contents'][0]['url'] = 'https://tw.global.nba.com/media/img/teams/00/logos/{}_logo.png'.format(Schedule['profile']['abbr'])
+            Schedule_out['body']['contents'][0]['contents'][0]['url'] = 'https://tw.glob-prev3.nba.com/media/img/teams/00/logos/{}_logo.png'.format(Schedule['profile']['abbr'])
 
             # Team name
             Schedule_out['body']['contents'][0]['contents'][1]['contents'][1]['text'] = '{} {}'.format(Schedule['profile']['city'], Schedule['profile']['displayAbbr'])
