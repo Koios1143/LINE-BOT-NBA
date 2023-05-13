@@ -1,7 +1,7 @@
 import json, requests
 
 def GetPlayers(Team):
-    url = 'https://tw.global.nba.com/stats2/team/playerstats.json?locale=zh_TW&teamCode={}'.format(Team)
+    url = 'https://tw.glob-prev3.nba.com/stats2/team/playerstats.json?locale=zh_TW&teamCode={}'.format(Team)
     Data = json.loads(requests.get(url).text)['payload']
     Data_TeamProfile = Data['team']['profile']
     Data_TeamStanding = Data['team']['standing']
@@ -12,7 +12,7 @@ def GetPlayers(Team):
     TeamInfo_ = TeamInfo[1]['contents']
     PlayerBox = TeamPlayers['body']['contents']
 
-    TeamInfo[0]['url'] = 'https://tw.global.nba.com/media/img/teams/00/logos/{}_logo.png'.format(Data_TeamProfile['abbr'])
+    TeamInfo[0]['url'] = 'https://tw.glob-prev3.nba.com/media/img/teams/00/logos/{}_logo.png'.format(Data_TeamProfile['abbr'])
     TeamInfo_[0]['text'] = '{} {}'.format(Data_TeamProfile['city'], Data_TeamProfile['displayAbbr'])
     TeamInfo_[1]['text'] = '{}聯盟中排名#{}'.format(Data_TeamProfile['displayConference'], Data_TeamStanding['confRank'])
     TeamInfo_[2]['text'] = '{} 勝 - {} 負'.format(Data_TeamStanding['wins'], Data_TeamStanding['losses'])
