@@ -1,7 +1,7 @@
 import requests, json
 
 def GetTeam():
-    url = 'https://tw.global.nba.com/stats2/league/conferenceteamlist.json?locale=zh_TW'
+    url = 'https://tw.glob-prev3.nba.com/stats2/league/conferenceteamlist.json?locale=zh_TW'
     Data = json.loads(requests.get(url).text)
     res = {}
 
@@ -19,13 +19,13 @@ def GetTeam():
             if(Team['profile']['division'] not in res[Group_Name]):
                 res[Group_Name][Team['profile']['division']] = [{
                     "name" : '{} {}'.format(Team['profile']['city'].strip(), Team['profile']['displayAbbr'].strip()),
-                    "logo" : 'https://tw.global.nba.com/media/img/teams/00/logos/{}_logo.png'.format(Team['profile']['abbr'].strip()),
+                    "logo" : 'https://tw.glob-prev3.nba.com/media/img/teams/00/logos/{}_logo.png'.format(Team['profile']['abbr'].strip()),
                     "code" : Team['profile']['code'].strip()
                 }]
             else:
                 res[Group_Name][Team['profile']['division']].append({
                     "name" : '{} {}'.format(Team['profile']['city'].strip(), Team['profile']['displayAbbr'].strip()),
-                    "logo" : 'https://tw.global.nba.com/media/img/teams/00/logos/{}_logo.png'.format(Team['profile']['abbr'].strip()),
+                    "logo" : 'https://tw.glob-prev3.nba.com/media/img/teams/00/logos/{}_logo.png'.format(Team['profile']['abbr'].strip()),
                     "code" : Team['profile']['code'].strip()
                 })
 
@@ -56,7 +56,7 @@ def GetTeam():
     return Card
 
 def GetTeam2():
-    url = 'https://tw.global.nba.com/stats2/league/conferenceteamlist.json?locale=zh_TW'
+    url = 'https://tw.glob-prev3.nba.com/stats2/league/conferenceteamlist.json?locale=zh_TW'
     Data = json.loads(requests.get(url).text)
     res = {}
 
@@ -74,13 +74,13 @@ def GetTeam2():
             if(Team['profile']['division'] not in res[Group_Name]):
                 res[Group_Name][Team['profile']['division']] = [{
                     "name" : '{} {}'.format(Team['profile']['city'].strip(), Team['profile']['displayAbbr'].strip()),
-                    "logo" : 'https://tw.global.nba.com/media/img/teams/00/logos/{}_logo.png'.format(Team['profile']['abbr'].strip()),
+                    "logo" : 'https://tw.glob-prev3.nba.com/media/img/teams/00/logos/{}_logo.png'.format(Team['profile']['abbr'].strip()),
                     "code" : Team['profile']['code'].strip()
                 }]
             else:
                 res[Group_Name][Team['profile']['division']].append({
                     "name" : '{} {}'.format(Team['profile']['city'].strip(), Team['profile']['displayAbbr'].strip()),
-                    "logo" : 'https://tw.global.nba.com/media/img/teams/00/logos/{}_logo.png'.format(Team['profile']['abbr'].strip()),
+                    "logo" : 'https://tw.glob-prev3.nba.com/media/img/teams/00/logos/{}_logo.png'.format(Team['profile']['abbr'].strip()),
                     "code" : Team['profile']['code'].strip()
                 })
 
@@ -111,7 +111,7 @@ def GetTeam2():
     return Card
 
 def GetTeam3():
-    url = 'https://tw.global.nba.com/stats2/league/conferenceteamlist.json?locale=zh_TW'
+    url = 'https://tw.glob-prev3.nba.com/stats2/league/conferenceteamlist.json?locale=zh_TW'
     Data = json.loads(requests.get(url).text)
     res = {}
 
@@ -129,13 +129,13 @@ def GetTeam3():
             if(Team['profile']['division'] not in res[Group_Name]):
                 res[Group_Name][Team['profile']['division']] = [{
                     "name" : '{} {}'.format(Team['profile']['city'].strip(), Team['profile']['displayAbbr'].strip()),
-                    "logo" : 'https://tw.global.nba.com/media/img/teams/00/logos/{}_logo.png'.format(Team['profile']['abbr'].strip()),
+                    "logo" : 'https://tw.glob-prev3.nba.com/media/img/teams/00/logos/{}_logo.png'.format(Team['profile']['abbr'].strip()),
                     "code" : Team['profile']['code'].strip()
                 }]
             else:
                 res[Group_Name][Team['profile']['division']].append({
                     "name" : '{} {}'.format(Team['profile']['city'].strip(), Team['profile']['displayAbbr'].strip()),
-                    "logo" : 'https://tw.global.nba.com/media/img/teams/00/logos/{}_logo.png'.format(Team['profile']['abbr'].strip()),
+                    "logo" : 'https://tw.glob-prev3.nba.com/media/img/teams/00/logos/{}_logo.png'.format(Team['profile']['abbr'].strip()),
                     "code" : Team['profile']['code'].strip()
                 })
 
