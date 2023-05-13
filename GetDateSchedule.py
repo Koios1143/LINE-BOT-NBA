@@ -14,9 +14,9 @@ def tz_from_utc_ms_ts(utc_ms_ts, tz_info):
     return utc_datetime.replace(tzinfo=pytz.timezone('UTC')).astimezone(tz_info)
 
 def GetDateSchedule(Team, Date):
-    url = 'https://tw.global.nba.com/stats2/team/schedule.json?countryCode=TW&locale=zh_TW&teamCode={}'.format(Team)
+    url = 'https://tw.glob-prev3.nba.com/stats2/team/schedule.json?countryCode=TW&locale=zh_TW&teamCode={}'.format(Team)
     Schedule = json.loads(requests.get(url).text)['payload']
-    url = 'https://tw.global.nba.com/stats2/team/standing.json?locale=zh_TW&teamCode={}'.format(Team)
+    url = 'https://tw.glob-prev3.nba.com/stats2/team/standing.json?locale=zh_TW&teamCode={}'.format(Team)
     Standing = json.loads(requests.get(url).text)['payload']
 
     year = str(Schedule['season']['year'])
@@ -69,13 +69,13 @@ def GetDateSchedule(Team, Date):
                     Game_Final_Result = '負'
             
             # Team Info
-            Team_logo = 'https://tw.global.nba.com/media/img/teams/00/logos/{}_logo.png'.format(Schedule['profile']['abbr'])
+            Team_logo = 'https://tw.glob-prev3.nba.com/media/img/teams/00/logos/{}_logo.png'.format(Schedule['profile']['abbr'])
             Team_name = '{} {}'.format(Schedule['profile']['city'], Schedule['profile']['displayAbbr'])
             Tema_WL = '{} - {}'.format(Standing['team']['standings']['wins'], Standing['team']['standings']['losses'])
             
             # Oppo Info
             Oppo_name = '{} {}'.format(game[Oppo]['profile']['city'], game[Oppo]['profile']['displayAbbr'])
-            Oppo_logo = 'https://tw.global.nba.com/media/img/teams/00/logos/{}_logo.png'.format(game[Oppo]['profile']['abbr'])
+            Oppo_logo = 'https://tw.glob-prev3.nba.com/media/img/teams/00/logos/{}_logo.png'.format(game[Oppo]['profile']['abbr'])
             Oppo_WL = '{} - {}'.format(game[Oppo]['matchup']['wins'], game[Oppo]['matchup']['losses'])
             
             # URL Info
