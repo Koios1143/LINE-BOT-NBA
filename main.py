@@ -17,8 +17,10 @@ from GetTeamLeaders import GetTeamLeaders
 
 app = Flask(__name__)
 # LINE BOT info
-line_bot_api = LineBotApi('Channel Access Token')
-handler = WebhookHandler('Channel Secret')
+Channel_Access_Token = open('/etc/secrets/Channel_Access_Token').read()
+Channel_Secret = open('/etc/secrets/Channel_Secret').read()
+line_bot_api = LineBotApi(Channel_Access_Token)
+handler = WebhookHandler(Channel_Secret)
 
 @app.route("/callback", methods=['POST'])
 def callback():
